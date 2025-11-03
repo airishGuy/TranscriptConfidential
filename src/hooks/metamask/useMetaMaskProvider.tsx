@@ -107,7 +107,7 @@ function useMetaMaskInternal(): UseMetaMaskState {
     if (_currentProvider && chainId !== Number.parseInt("11155111", 16)) {
       await _currentProvider.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: 11155111 }],
+        params: [{ chainId: "0xaa36a7" }], // 11155111
       });
     }
   };
