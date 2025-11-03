@@ -479,9 +479,10 @@ const connectWallet = async () => {
               <p className="text-sm text-muted-foreground">Student Portal</p>
             </div>
           </div>
+          {/* connectWallet */}
 
           {!walletConnected ? (
-            <Button onClick={connectWallet} disabled={loading} className="bg-[#000000] text-[#ffffff]">
+            <Button onClick={connect} disabled={loading} className="bg-[#000000] text-[#ffffff]">
               {loading ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
