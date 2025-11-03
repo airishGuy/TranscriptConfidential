@@ -163,29 +163,29 @@ function AppRoot() {
 
 
 
-// const connectWallet = async () => {
-//     setLoading(true)
-//     // Simulate wallet connection
-//     connect();
-//     setTimeout(() => {
-//       setWalletConnected(true)
-//       setWalletAddress(account);
-//       setLoading(false)
-//     }, 1000)
-//   }
-
 const connectWallet = async () => {
-  try {
-    setLoading(true);
-    connect(); //
-    if (account) {
-      setWalletConnected(true);
+    setLoading(true)
+    // Simulate wallet connection
+    connect();
+    setTimeout(() => {
+      setWalletConnected(true)
       setWalletAddress(account);
-    }
-  } finally {
-    setLoading(false);
+      setLoading(false)
+    }, 1000)
   }
-};
+
+// const connectWallet = async () => {
+//   try {
+//     setLoading(true);
+//     connect(); //
+//     if (account) {
+//       setWalletConnected(true);
+//       setWalletAddress(account);
+//     }
+//   } finally {
+//     setLoading(false);
+//   }
+// };
 
   const disconnectWallet = () => {
     disconnect();
