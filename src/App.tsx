@@ -456,12 +456,12 @@ const connectWallet = async () => {
 
 
 
-// useEffect(() => {
-//   if (account) {
-//     setWalletConnected(true);
-//     setWalletAddress(account);
-//   }
-// }, [account]);
+useEffect(() => {
+  if (account) {
+    setWalletConnected(true);
+    setWalletAddress(account);
+  }
+}, [account]);
 
 
   return (
