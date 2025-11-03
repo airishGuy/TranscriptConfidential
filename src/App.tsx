@@ -106,63 +106,6 @@ function AppRoot() {
 
 
 
-
-
-
-  // Initialize FHEVM
-//   const initializeFhevm = async () => {
-//     setFhevmStatus('loading');
-    
-//     try {
-//       await initializeFheInstance();
-//       setFhevmStatus('ready');
-//       console.log('✅ FHEVM initialized for React!');
-//     } catch (error) {
-//       setFhevmStatus('error');
-//       console.error('FHEVM initialization failed:', error);
-//     }
-//   };
-
-
-  // Wallet connection
-//   const connectWallet = async () => {
-//     console.log('🔗 Attempting to connect wallet...');
-    
-//     if (typeof window === 'undefined') {
-//       console.error('❌ Window is undefined - not in browser environment');
-//       return;
-//     }
-    
-//     if (!window.ethereum) {
-//       console.error('❌ No Ethereum provider found. Please install MetaMask or connect a wallet.');
-//       alert('Please install MetaMask or connect a wallet to use this app.');
-//       return;
-//     }
-    
-//     try {
-//       console.log('📱 Requesting accounts...');
-//       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-//       console.log('✅ Accounts received:', accounts);
-      
-//       const chainIdHex = await window.ethereum.request({ method: 'eth_chainId' });
-//       console.log('🔗 Chain ID:', chainIdHex);
-      
-//       setAccount(accounts[0]);
-//       setChainId(parseInt(chainIdHex, 16));
-//       setIsConnected(true);
-      
-//       console.log('✅ Wallet connected successfully!');
-      
-//       // Initialize FHEVM after wallet connection
-//       await initializeFhevm();
-//     } catch (error) {
-//       console.error('❌ Wallet connection failed:', error);
-//       alert(`Wallet connection failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-//     }
-//   };
-
-
-
 const connectWallet = async () => {
     setLoading(true)
     // Simulate wallet connection
@@ -174,18 +117,7 @@ const connectWallet = async () => {
     }, 1000)
   }
 
-// const connectWallet = async () => {
-//   try {
-//     setLoading(true);
-//     connect(); //
-//     if (account) {
-//       setWalletConnected(true);
-//       setWalletAddress(account);
-//     }
-//   } finally {
-//     setLoading(false);
-//   }
-// };
+
 
   const disconnectWallet = () => {
     disconnect();
@@ -523,38 +455,13 @@ const connectWallet = async () => {
   }
 
 
-//   const handleSetCID = async () => {
 
-//     setLoadingcid(true);
-//       try {
-
-//         const contract = new ethers.Contract(
-//           ConfidentialTranscriptAddresses["11155111"].address,
-//           ConfidentialTranscriptABI.abi,
-//           ethersSigner
-//         );
-
- 
-//         const tx = await contract.setCid(newCID);
-//         const response = await tx.wait()
-//         console.log({response});
-//         if(!response) return;
-
-//         toast.success("setCid Txn success");
-//         setLoadingcid(false)
-//     } catch (err) {
-//         toast.error(JSON.stringify(err));
-//         setLoadingcid(false)
-//     }
-
+// useEffect(() => {
+//   if (account) {
+//     setWalletConnected(true);
+//     setWalletAddress(account);
 //   }
-
-useEffect(() => {
-  if (account) {
-    setWalletConnected(true);
-    setWalletAddress(account);
-  }
-}, [account]);
+// }, [account]);
 
 
   return (
