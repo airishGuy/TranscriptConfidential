@@ -482,7 +482,7 @@ useEffect(() => {
           {/* connectWallet */}
 
           {!walletConnected ? (
-            <Button onClick={connect} disabled={loading} className="bg-[#000000] text-[#ffffff]">
+            <Button onClick={connectWallet} disabled={loading} className="bg-[#000000] text-[#ffffff]">
               {loading ? (
                 <>
                   <Loader2 className="w-4 h-4 mr-2 animate-spin" />
@@ -535,7 +535,7 @@ useEffect(() => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button onClick={connect} className="w-full bg-[#000000] text-[#ffffff]" disabled={loading}>
+              <Button onClick={connectWallet} className="w-full bg-[#000000] text-[#ffffff]" disabled={loading}>
                 {loading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
