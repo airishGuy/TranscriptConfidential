@@ -163,16 +163,29 @@ function AppRoot() {
 
 
 
+// const connectWallet = async () => {
+//     setLoading(true)
+//     // Simulate wallet connection
+//     connect();
+//     setTimeout(() => {
+//       setWalletConnected(true)
+//       setWalletAddress(account);
+//       setLoading(false)
+//     }, 1000)
+//   }
+
 const connectWallet = async () => {
-    setLoading(true)
-    // Simulate wallet connection
-    connect();
-    setTimeout(() => {
-      setWalletConnected(true)
+  try {
+    setLoading(true);
+    connect(); //
+    if (account) {
+      setWalletConnected(true);
       setWalletAddress(account);
-      setLoading(false)
-    }, 1000)
+    }
+  } finally {
+    setLoading(false);
   }
+};
 
   const disconnectWallet = () => {
     disconnect();
@@ -536,6 +549,14 @@ const connectWallet = async () => {
 
 //   }
 
+useEffect(() => {
+  if (account) {
+    setWalletConnected(true);
+    setWalletAddress(account);
+  }
+}, [account]);
+
+
   return (
     <div>
             <div className="min-h-screen bg-background">
@@ -574,9 +595,18 @@ const connectWallet = async () => {
                 <CheckCircle2 className="w-3 h-3 mr-1" />
                 Connected
               </Badge>
-              <code className="text-sm text-muted-foreground font-mono">
+  
+              {/* <code className="text-sm text-muted-foreground font-mono">
                 {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
-              </code>
+              </code> */}
+
+              {walletAddress ? (
+  <code className="text-sm text-muted-foreground font-mono">
+    {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
+  </code>
+) : (
+  <span className="text-sm text-muted-foreground">Not connected</span>
+)}
             </div>
           )}
           
